@@ -1,0 +1,11 @@
+<script>
+  function generateKey() {
+    const key = [...Array(32)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+    const now = new Date();
+    const expiry = new Date(now.getTime() + 5 * 60 * 60 * 1000); // +5 ชั่วโมง
+
+    document.getElementById("key").textContent = key;
+    document.getElementById("timeLeft").textContent = expiry.toLocaleTimeString();
+  }
+  window.onload = generateKey;
+</script>
